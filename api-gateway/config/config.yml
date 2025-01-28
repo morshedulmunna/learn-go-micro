@@ -1,0 +1,26 @@
+services:
+  auth:
+    base_url: "http://auth-service:5001"
+    routes:
+      - path: "/login"
+        method: "POST"
+        target: "/api/auth/login"
+      - path: "/register"
+        method: "POST"
+        target: "/api/auth/register"
+
+  users:
+    base_url: "http://user-service:5002"
+    routes:
+      - path: "/:id"
+        method: "GET"
+        target: "/api/users/:id"
+      - path: "/:id"
+        method: "PUT"
+        target: "/api/users/:id"
+      - path: "/:id"
+        method: "DELETE"
+        target: "/api/users/:id"
+      - path: "/"
+        method: "GET"
+        target: "/api/users" 
